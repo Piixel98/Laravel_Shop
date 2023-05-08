@@ -8,7 +8,7 @@
     @include('base.alert')
     <div id="alertMsgSuccess" class="alert alert-dismissible alert-success" style="display: none"  role="alert">
         <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-        Added order successfully
+        Order added successfully
     </div>
     <div id="alertMsgError" class="alert alert-dismissible alert-danger" style="display: none"  role="alert">
         <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>

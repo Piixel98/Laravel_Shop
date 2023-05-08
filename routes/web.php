@@ -13,17 +13,15 @@ Route::get('/', function () {
 Route::get('/products', [ProductController::class, 'getByCategory'])
     ->name('products');
 
-Route::get('/products/{id}/addCart' , [CartController::class, 'addProduct'])
-    ->name('addProductCart');
-
-Route::get('/products/{id}/removeCart', [CartController::class,'delProduct'])
-    ->name('delProductCart');
-
 Route::get('/detail', [ProductController::class, 'getDetail'])
     ->name('detail');
 
 Route::get('/cart', [CartController::class, 'getCart'])
     ->name('cart');
+Route::get('/cart/add/{id}' , [CartController::class, 'addProduct'])
+    ->name('addProductCart');
+Route::get('/cart/delete/{id}', [CartController::class,'delProduct'])
+    ->name('delProductCart');
 
 Route::get('/checkout', [CartController::class, 'getCheckout'])
     ->name('checkout');

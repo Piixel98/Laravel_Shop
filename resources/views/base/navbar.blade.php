@@ -17,7 +17,7 @@
                     <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" id="pagesDropdown" href="#" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Pages</a>
                         <div class="dropdown-menu mt-3 shadow-sm" aria-labelledby="pagesDropdown">
                             <a class="dropdown-item border-0 transition-link" href="{{route('index')}}">Homepage</a>
-                            <a class="dropdown-item border-0 transition-link" href="{{route('products')}}">Category</a>
+                            <a class="dropdown-item border-0 transition-link" href="{{route('products')}}">Shop</a>
                             <a class="dropdown-item border-0 transition-link" href="{{route('detail', ["id"=>1])}}">Product detail</a>
                             <a class="dropdown-item border-0 transition-link" href="{{route('cart')}}">Shopping cart</a>
                             <a class="dropdown-item border-0 transition-link" href="{{route('checkout')}}">Checkout</a>

@@ -1,6 +1,6 @@
 Laravel v8.83.24 (PHP v7.4.28)
 
-Desarrollando:
+Developing:
 
 php artisan make:model User
 
@@ -10,7 +10,7 @@ php artisan make:Controller UserController
 
 ...
 
-Ejecutar proyecto:
+Up Project:
 
 php artisan migrate:refresh
 
@@ -22,7 +22,7 @@ php artisan serve
 
 ...
 
-Acceder login admin:
+Login Admin:
 
 User: admin@uoc.edu
 

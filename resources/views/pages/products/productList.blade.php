@@ -8,9 +8,31 @@
                                                                    src="{{asset($product->image)}}" alt="..."></a>
                 <div class="product-overlay">
                     <ul class="mb-0 list-inline">
-                        <li class="list-inline-item m-0 p-0"><a class="btn btn-sm btn-dark"
-                                                                href="{{route("addProductCart",['id'=>$product->id,'quantity'=>1])}}">Add to cart</a>
-                        </li>
+                        @if(session()->has('cart'))
+                            @if(count(session('cart')) > 0)
+                                @foreach(session('cart') as $item)
+                                    @if($item->product->id == $product->id)
+                                        <li class="list-inline-item m-0 p-0"><a class="btn btn-sm btn-dark"
+                                                                                href="{{route("addProductCart",['id'=>$product->id,'quantity'=>$item->quantity+1])}}">Add to cart</a>
+                                        </li>
+                                        @break
+                                    @else
+                                        <li class="list-inline-item m-0 p-0"><a class="btn btn-sm btn-dark"
+                                                                                href="{{route("addProductCart",['id'=>$product->id,'quantity'=>1])}}">Add to cart</a>
+                                        </li>
+                                        @break
+                                    @endif
+                                @endforeach
+                            @else
+                                <li class="list-inline-item m-0 p-0"><a class="btn btn-sm btn-dark"
+                                                                        href="{{route("addProductCart",['id'=>$product->id,'quantity'=>1])}}">Add to cart</a>
+                                </li>
+                            @endif
+                        @else
+                            <li class="list-inline-item m-0 p-0"><a class="btn btn-sm btn-dark"
+                                                                    href="{{route("addProductCart",['id'=>$product->id,'quantity'=>1])}}">Add to cart</a>
+                            </li>
+                        @endif
                     </ul>
                 </div>
             </div>

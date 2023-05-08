@@ -103,11 +103,8 @@ class CartService
 
     public function overrideSession(): void
     {
-        if(session()->has("cart")){
-            // Override session cart with new cart
-            session()->put("cart",$this->cart);
-            session()->save();
-        }
-
+        // Override session cart with new cart
+        session()->put("cart",$this->cart);
+        session()->save();
     }
 }

@@ -56,8 +56,25 @@
                         </div>
                     </div>
                     @if($product->stock != 0)
+                        @if(session()->has('cart'))
+                            @if(count(session('cart')) > 0)
+                                @foreach(session('cart') as $item)
+                                    @if($item->product->id == $product->id)
+                                        <a class="col-sm-3 pl-sm-0 btn btn-dark btn-sm btn-block h-100 d-flex align-items-center justify-content-center px-0"
+                                           href="{{route("addProductCart",['id'=>$product->id,'quantity'=>$item->quantity+1])}}">Add to cart</a>
+                                        @break
+                                    @else
+                                        @continue
+                                    @endif
+                                @endforeach
+                            @else
+                                <a class="col-sm-3 pl-sm-0 btn btn-dark btn-sm btn-block h-100 d-flex align-items-center justify-content-center px-0"
+                                   href="{{route("addProductCart",['id'=>$product->id,'quantity'=>1])}}">Add to cart</a>
+                            @endif
+                        @else
                             <a class="col-sm-3 pl-sm-0 btn btn-dark btn-sm btn-block h-100 d-flex align-items-center justify-content-center px-0"
                                href="{{route("addProductCart",['id'=>$product->id,'quantity'=>1])}}">Add to cart</a>
+                        @endif
                     @else
                             <a class="col-sm-3 pl-sm-0 btn btn-dark btn-sm btn-block h-100 d-flex align-items-center justify-content-center disabled px-0">OUT OF STOCK</a>
                     @endif
